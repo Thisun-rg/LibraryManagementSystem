@@ -162,3 +162,32 @@ CREATE TABLE BorrowHistory (
 
 
 *Press F5 in Visual Studio to run the app.
+
+## 📸 Screenshots
+
+### 🔑 Login Form
+![Login Form](screenshots/login.png)
+
+### 🖥️ Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### 👥 Manage Members
+![Manage Members](screenshots/members.png)
+
+### 📚 Manage Books
+![Manage Books](screenshots/books.png)
+
+### 📖 Borrow Books
+![Borrow Books](screenshots/borrow.png)
+
+### 📕 Return Books
+![Return Books](screenshots/return.png)
+
+### 📊 Borrowing History
+![Borrowing History](screenshots/borrow_history.png)
+
+### 📈 Returning History
+![Returning History](screenshots/return_history.png)
+
+### 📝 View Receipts
+![View Receipts](screenshots/receipts.png)
