@@ -103,3 +103,62 @@ This project is designed to manage books, members, borrowing, returning, and rec
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/LibraryManagementSystem.git
+
+*Open the solution in Visual Studio.
+
+*Update the connectionString in each form to match your SQL Server instance.
+
+*Run the SQL script to create the database (LibraryDB with Users, Members, Books, BorrowHistory tables).
+
+-- Create Database
+CREATE DATABASE LibraryDB;
+GO
+
+USE LibraryDB;
+GO
+
+-- Users Table
+CREATE TABLE Users (
+    UserID INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(50) NOT NULL,
+    Password NVARCHAR(50) NOT NULL,
+    Role NVARCHAR(20) NOT NULL
+);
+
+-- Insert Default Admin
+INSERT INTO Users (Username, Password, Role) 
+VALUES ('admin', '1234', 'Admin');
+
+-- Members Table
+CREATE TABLE Members (
+    MemberID INT IDENTITY(1,1) PRIMARY KEY,
+    FullName NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    Phone NVARCHAR(20) NOT NULL
+);
+
+-- Books Table
+CREATE TABLE Books (
+    BookID INT IDENTITY(1,1) PRIMARY KEY,
+    Title NVARCHAR(200) NOT NULL,
+    Author NVARCHAR(100) NOT NULL,
+    Genre NVARCHAR(50) NOT NULL,
+    YearPublished INT NOT NULL,
+    Quantity INT NOT NULL,
+    Available BIT NOT NULL DEFAULT 1
+);
+
+-- Borrow History Table
+CREATE TABLE BorrowHistory (
+    BorrowID INT IDENTITY(1,1) PRIMARY KEY,
+    MemberID INT NOT NULL,
+    BookID INT NOT NULL,
+    BorrowDate DATE NOT NULL,
+    ReturnDate DATE NULL,
+    IsReturned BIT NOT NULL DEFAULT 0,
+    FOREIGN KEY (MemberID) REFERENCES Members(MemberID),
+    FOREIGN KEY (BookID) REFERENCES Books(BookID)
+);
+
+
+*Press F5 in Visual Studio to run the app.
